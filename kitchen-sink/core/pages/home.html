@@ -9,107 +9,46 @@
         </div>
       </div>
     </div>
+
     <!-- start tabs -->
     <div class="toolbar tabbar tabbar-labels toolbar-${toolbarPosition}">
       <div class="toolbar-inner">
-        <a href="#tab-1" class="tab-link tab-link-active">
-          <i class="icon f7-icons if-not-md">envelope_fill</i>
-          <i class="icon material-icons md-only">email</i>
+        <a href="./" class="tab-link tab-link-active">
+          <i class="icon f7-icons if-not-md">rectangle_grid_2x2_fill</i>
+          <i class="icon material-icons md-only">dashboard</i>
           <span class="tabbar-label">Learn</span>
         </a>
-        <a href="#tab-2" class="tab-link">
-          <i class="icon f7-icons if-not-md">calendar_fill<span class="badge color-red">5</span></i>
-          <i class="icon material-icons md-only">today<span class="badge color-red">5</span></i>
-          <span class="tabbar-label">Explore</span>
+        <a href="/favorite" class="tab-link">
+          <i class="icon f7-icons if-not-md">suit_heart_fill</i>
+          <i class="icon material-icons md-only">favorite</i>
+          <span class="tabbar-label">Favorite</span>
         </a>
-        <a href="#tab-3" class="tab-link">
-          <i class="icon f7-icons if-not-md">cloud_upload_fill</i>
-          <i class="icon material-icons md-only">file_upload</i>
-          <span class="tabbar-label">Favorites</span>
-        </a>
-        <a href="#tab-4" class="tab-link">
-          <i class="icon f7-icons if-not-md">cloud_upload_fill</i>
-          <i class="icon material-icons md-only">file_upload</i>
-          <span class="tabbar-label">Settings</span>
+        <a href="/support" class="tab-link">
+          <i class="icon f7-icons if-not-md">person_crop_circle_fill</i>
+          <i class="icon material-icons md-only">account_circle</i>
+          <span class="tabbar-label">Support</span>
         </a>
       </div>
     </div>
-    <!-- start tab content -->
     <div class="tabs">
       <div id="tab-1" class="page-content tab tab-active">
         <div class="block">
           <div class="row">
             <a href="/names/" class="col-50 card-gradient gradient-1"> Names </a>
-            <a href="/places/" class="col-50 card-gradient gradient-2">Places</a>
-            <a href="/history/" class="col-100 card-gradient gradient-3">History</a>
-            <a href="/events/" class="col-50 card-gradient gradient-4">Events</a>
-            <a href="/sentences/" class="col-50 card-gradient gradient-5">Sentences</a>
+            <a href="/colors/" class="col-50 card-gradient gradient-2">Colors</a>
+            <a href="/family/" class="col-100 card-gradient gradient-3">Family Members</a>
+            <a href="/history/" class="col-50 card-gradient gradient-4">History</a>
+            <a href="/phrases/" class="col-50 card-gradient gradient-5">Phrases</a>
             <a href="/numbers/" class="col-100 card-gradient gradient-6">Numbers</a>
           </div>
         </div>
       </div>
-      <!-- .end of tab 1 -->
-      <div id="tab-2" class="page-content tab">
-        <div class="block">
-          <p>tab 2</p>
-        </div>
-      </div>
-      <!-- .end of tab 2 -->
-      <div id="tab-3" class="page-content tab">
-        <div class="block">
-          <p>tab 3</p>
-        </div>
-      </div>
-      <!-- .end of tab 3 -->
-      <div id="tab-4" class="page-content tab">
-        <div class="block">
-          <p>tab 4</p>
-        </div>
-      </div>
     </div>
-    <!-- end of page content. don't edit below this line -->
   </div>
 </template>
 <script>
-  export default function (props, ctx) {
+  export default function (props) {
     let toolbarPosition = 'bottom';
-    var $f7router = ctx.$f7router;
-    var $el = ctx.$el;
-    var $f7 = ctx.$f7;
-    var $onMounted = ctx.$onMounted;
-    var $on = ctx.$on;
-
-    function onResize() {
-      if ($f7.width >= 768) {
-        $el.value.find('.list:not(.searchbar-not-found)').addClass('menu-list');
-      } else {
-        $el.value.find('.list:not(.searchbar-not-found)').removeClass('menu-list');
-      }
-    }
-
-    if ($f7.theme === 'aurora') {
-      $onMounted(function () {
-        $el.value.find('.list a[href]:not(.external)').attr('data-reload-detail', 'true');
-        onResize();
-      });
-
-      $on('pageAfterIn', function () {
-        if ($f7.width >= 768) {
-          $f7router.navigate('/about/', { reloadDetail: true });
-        }
-      });
-
-      $f7.on('resize', onResize);
-
-      $f7router.on('routeChange', function (route) {
-        var url = route.url;
-        if (!$el.value) return;
-        var $linkEl = $el.value.find('a[href="' + url + '"]');
-        if (!$linkEl.length) return;
-        $el.value.find('.item-selected').removeClass('item-selected');
-        $linkEl.addClass('item-selected');
-      });
-    }
 
     return $render;
   }

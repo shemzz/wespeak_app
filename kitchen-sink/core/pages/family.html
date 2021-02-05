@@ -1,0 +1,76 @@
+<template>
+  <div class="page" id="colors-page">
+    <div class="navbar">
+      <div class="navbar-bg"></div>
+      <div class="navbar-inner sliding">
+        <div class="left">
+          <a href="#" class="link back">
+            <i class="icon icon-back"></i>
+            <span class="if-not-md">Back</span>
+          </a>
+        </div>
+        <div class="title">Family / Relatives</div>
+      </div>
+    </div>
+
+    <div class="toolbar tabbar tabbar-labels toolbar-${toolbarPosition}">
+      <div class="toolbar-inner">
+        <a href="/" class="tab-link tab-link-active">
+          <i class="icon f7-icons if-not-md">rectangle_grid_2x2_fill</i>
+          <i class="icon material-icons md-only">dashboard</i>
+          <span class="tabbar-label">Learn</span>
+        </a>
+        <a href="/favorite" class="tab-link">
+          <i class="icon f7-icons if-not-md">suit_heart_fill</i>
+          <i class="icon material-icons md-only">favorite</i>
+          <span class="tabbar-label">Favorite</span>
+        </a>
+        <a href="/support" class="tab-link">
+          <i class="icon f7-icons if-not-md">person_crop_circle_fill</i>
+          <i class="icon material-icons md-only">account_circle</i>
+          <span class="tabbar-label">Support</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="page-content">
+      <div class="block">
+        <div class="list">
+          <ul style="background: transparent">
+            <li class="gradient-1" style="margin-bottom: 1px">
+              <a href="#" class="item-link item-content">
+                <div class="item-media"><i class="icon icon-f7"></i></div>
+                <div class="item-inner">
+                  <div class="item-title">
+                    <div class="item-header">Friend</div>
+                    Pandang
+                  </div>
+                  <div class="item-after">Play</div>
+                </div>
+              </a>
+            </li>
+            <li class="gradient-1">
+              <a href="#" class="item-link item-content">
+                <div class="item-media"><i class="icon icon-f7"></i></div>
+                <div class="item-inner">
+                  <div class="item-title">
+                    <div class="item-header">Mother</div>
+                    Nma
+                  </div>
+                  <div class="item-after">Play</div>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+  export default function (props) {
+    let toolbarPosition = 'bottom';
+
+    return $render;
+  }
+</script>

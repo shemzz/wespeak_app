@@ -11,13 +11,38 @@ var routes = [
   // About page
   {
     path: '/about/',
-    url: './pages/about.html',
+    componentUrl: './pages/about.html',
     name: 'about',
   },
   // names view
   {
     path: '/names/',
-    url: './pages/names.html',
+    componentUrl: './pages/names.html',
+  },
+  //colors view
+  {
+    path: '/colors/',
+    componentUrl: './pages/colors.html',
+  },
+  //numbers view
+  {
+    path: '/numbers',
+    componentUrl: './pages/numbers.html'
+  },
+  //phrases view
+  {
+    path: '/phrases/',
+    componentUrl: './pages/phrases.html'
+  },
+  //family members view
+  {
+    path: '/family',
+    componentUrl: './pages/family.html'
+  },
+  //history view
+  {
+    path: '/history',
+    componentUrl: './pages/history.html'
   },
   // Right Panel pages
   {

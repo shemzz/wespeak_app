@@ -1,4 +1,5 @@
-<div class="page">
+<template>
+  <div class="page">
     <div class="navbar">
       <div class="navbar-bg"></div>
       <div class="navbar-inner sliding">
@@ -8,20 +9,174 @@
             <span class="if-not-md">Back</span>
           </a>
         </div>
-        <div class="title">List View</div>
+        <div class="title">Names</div>
+        <div class="right">
+          <a class="link" @click="${toggleToolbarPosition}">
+            <i class="icon material-icons rotate-icon md-only">compare_arrows</i>
+            <i class="icon f7-icons rotate-icon if-not-md">arrow_up_arrow_down_circle_fill</i>
+          </a>
+        </div>
       </div>
     </div>
-    <div class="page-content">
+    <div class="toolbar tabbar tabbar-scrollable toolbar-${toolbarPosition}">
+      <div class="toolbar-inner">
+        ${tabs.map((tab, index) => $h`
+        <a href="#${tab}" class="tab-link ${index === 0 ? 'tab-link-active' : ''}">${tab}</a>
+        `)}
+      </div>
+    </div>
 
-      <div class="block-title">Simple Links List</div>
-      <div class="list links-list">
-        <ul>
-          <li><a href="#">Link 1</a></li>
-          <li><a href="#">Link 2</a></li>
-          <li><a href="#">Link 3</a></li>
-        </ul>
+    <div class="tabs-swipeable-wrap hide-toolbar-on-scroll">
+      <div class="tabs">
+        <div id="Animals" class="page-content tab tab-active">
+          <div class="block">
+            <div class="list">
+              <ul style="background: transparent">
+                <li class="gradient-1" style="margin-bottom: 1px">
+                  <a href="#" class="item-link item-content">
+                    <div class="item-media"><i class="icon icon-f7"></i></div>
+                    <div class="item-inner">
+                      <div class="item-title">
+                        <div class="item-header">Dog</div>
+                        Kabuu
+                      </div>
+                      <div class="item-after">Play</div>
+                    </div>
+                  </a>
+                </li>
+                <li class="gradient-1">
+                  <a href="#" class="item-link item-content">
+                    <div class="item-media"><i class="icon icon-f7"></i></div>
+                    <div class="item-inner">
+                      <div class="item-title">
+                        <div class="item-header">Cat</div>
+                        Muskule
+                      </div>
+                      <div class="item-after">Play</div>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div id="Food" class="page-content tab">
+          <div class="block">
+            <div class="list">
+              <ul style="background: transparent">
+                <li class="gradient-1" style="margin-bottom: 1px">
+                  <a href="#" class="item-link item-content">
+                    <div class="item-media"><i class="icon icon-f7"></i></div>
+                    <div class="item-inner">
+                      <div class="item-title">
+                        <div class="item-header">Beans</div>
+                        Jinjok
+                      </div>
+                      <div class="item-after">Play</div>
+                    </div>
+                  </a>
+                </li>
+                <li class="gradient-1">
+                  <a href="#" class="item-link item-content">
+                    <div class="item-media"><i class="icon icon-f7"></i></div>
+                    <div class="item-inner">
+                      <div class="item-title">
+                        <div class="item-header">Okro</div>
+                        Kusat
+                      </div>
+                      <div class="item-after">Play</div>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div id="Places" class="page-content tab">
+          <div class="block">
+            <div class="list">
+              <ul style="background: transparent">
+                <li class="gradient-1" style="margin-bottom: 1px">
+                  <a href="#" class="item-link item-content">
+                    <div class="item-media"><i class="icon icon-f7"></i></div>
+                    <div class="item-inner">
+                      <div class="item-title">
+                        <div class="item-header">Market</div>
+                        Kasu
+                      </div>
+                      <div class="item-after">Play</div>
+                    </div>
+                  </a>
+                </li>
+                <li class="gradient-1">
+                  <a href="#" class="item-link item-content">
+                    <div class="item-media"><i class="icon icon-f7"></i></div>
+                    <div class="item-inner">
+                      <div class="item-title">
+                        <div class="item-header">Town</div>
+                        Kayanka
+                      </div>
+                      <div class="item-after">Play</div>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div id="Furniture" class="page-content tab">
+          <div class="block">
+            <div class="list">
+              <ul style="background: transparent">
+                <li class="gradient-1" style="margin-bottom: 1px">
+                  <a href="#" class="item-link item-content">
+                    <div class="item-media"><i class="icon icon-f7"></i></div>
+                    <div class="item-inner">
+                      <div class="item-title">
+                        <div class="item-header">Chair</div>
+                        Kujera
+                      </div>
+                      <div class="item-after">Play</div>
+                    </div>
+                  </a>
+                </li>
+                <li class="gradient-1">
+                  <a href="#" class="item-link item-content">
+                    <div class="item-media"><i class="icon icon-f7"></i></div>
+                    <div class="item-inner">
+                      <div class="item-title">
+                        <div class="item-header">Knife</div>
+                        Abai
+                      </div>
+                      <div class="item-after">Play</div>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
-  
     </div>
+
+    <!-- .end -->
   </div>
-  
+</template>
+<style>
+  .rotate-icon {
+    transform: rotate(90deg);
+  }
+</style>
+<script>
+  export default (props, { $update }) => {
+    let toolbarPosition = 'top';
+    const tabs = ['Animals', 'Food', 'Places', 'Furniture'];
+
+    const toggleToolbarPosition = () => {
+      toolbarPosition = toolbarPosition === 'top' ? 'bottom' : 'top';
+      $update();
+    };
+
+    return $render;
+  };
+</script>
