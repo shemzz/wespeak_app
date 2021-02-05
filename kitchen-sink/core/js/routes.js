@@ -44,6 +44,16 @@ var routes = [
     path: '/history',
     componentUrl: './pages/history.html'
   },
+  //support view
+  {
+    path: '/support',
+    componentUrl: './pages/support.html'
+  },
+  //favorites view
+  {
+    path: '/favorite',
+    componentUrl: './pages/favorite.html'
+  },
   // Right Panel pages
   {
     path: '/panel-right-1/',
